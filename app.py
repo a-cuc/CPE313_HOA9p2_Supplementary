@@ -59,10 +59,6 @@ model = NeuralNetwork_Hyper().to(device)
 print(model)
 
 @st.cache(allow_output_mutation=True)
-def load_model():
-  model=model.load_state_dict(torch.load('model1_vanilla7_weights.pth'))
-  return model
-model=load_model()
 st.write("""
 # Drowsiness Detection System by Angelo"""
 )
