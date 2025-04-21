@@ -66,7 +66,7 @@ file=st.file_uploader("Choose photo from computer",type=["jpg","png"])
 def import_and_predict(image_data,model):
     transform = transforms.Compose([transforms.PILToTensor()])
     tensor = transform(image)
-    prediction=model(image)
+    prediction=model(tensor)
     predicted_classes = (prediction > 0).float()
     return predicted_classes
 
