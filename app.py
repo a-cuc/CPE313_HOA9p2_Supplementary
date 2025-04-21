@@ -55,14 +55,9 @@ class NeuralNetwork_Hyper(nn.Module):
         logits = self.fc_layer(h_n[-1])
         return logits.squeeze(1)
 
-model_bare = NeuralNetwork_Hyper().to(device)
-print(model_bare)
+model = NeuralNetwork_Hyper().to(device)
+print(model)
 
-@st.cache_resource
-def load_model(model_bare):
-  model=model_bare.load_state_dict(torch.load('model1_vanilla7_weights.pth'))
-  return model
-model=load_model(model_bare)
 st.write("""
 # Drowsiness Detection System by Angelo"""
 )
