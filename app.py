@@ -64,6 +64,7 @@ st.write("""
 file=st.file_uploader("Choose photo from computer",type=["jpg","png"])
 
 def import_and_predict(image_data,model):
+    model.eval()
     transform = transforms.Compose([transforms.PILToTensor()])
     tensor = transform(image)
     prediction=model(tensor)
