@@ -9,6 +9,8 @@ import numpy as np
 device = "cpu"
 print(f"Using {device} device")
 
+torch.classes.__path__ = []
+
 from torch.nn.utils.parametrizations import weight_norm
 
 class NeuralNetwork_Hyper(nn.Module):
