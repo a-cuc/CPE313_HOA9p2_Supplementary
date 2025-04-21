@@ -65,7 +65,7 @@ file=st.file_uploader("Choose photo from computer",type=["jpg","png"])
 
 def import_and_predict(image_data,model):
     size=(64,64)
-    image=ImageOps.fit(image_data,size,Image.ANTIALIAS)
+    image=ImageOps.fit(image_data,size,Image)
     img=np.asarray(image)
     img_reshape=img[np.newaxis,...]
     prediction=model(img_reshape)
