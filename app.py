@@ -64,8 +64,9 @@ st.write("""
 file=st.file_uploader("Choose photo from computer",type=["jpg","png"])
 
 def import_and_predict(image_data,model):
-    img=transforms.ToTensor(image)
-    prediction=model(img_reshape)
+    transform = transforms.Compose([transforms.PILToTensor()])
+    tensor = transform(image)
+    prediction=model(image)
     predicted_classes = (prediction > 0).float()
     return predicted_classes
 
