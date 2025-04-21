@@ -62,7 +62,7 @@ print(model_bare)
 def load_model(model_bare):
   model=model_bare.load_state_dict(torch.load('model1_vanilla7_weights.pth'))
   return model
-model=load_model()
+model=load_model(model_bare)
 st.write("""
 # Drowsiness Detection System by Angelo"""
 )
