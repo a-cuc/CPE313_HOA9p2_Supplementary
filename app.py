@@ -1,6 +1,6 @@
 import streamlit as st
 import torch
-from torchvision import models
+from torchvision import models, transforms
 from torch import nn
 import cv2
 from PIL import Image,ImageOps
@@ -64,9 +64,7 @@ st.write("""
 file=st.file_uploader("Choose photo from computer",type=["jpg","png"])
 
 def import_and_predict(image_data,model):
-    size=(64,64)
-    img=np.asarray(image)
-    img_reshape=img[np.newaxis,...]
+    img=transforms.ToTensor(image)
     prediction=model(img_reshape)
     predicted_classes = (prediction > 0).float()
     return predicted_classes
