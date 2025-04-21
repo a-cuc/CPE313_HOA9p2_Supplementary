@@ -67,7 +67,8 @@ def import_and_predict(image_data,model):
     model.eval()
     transform = transforms.Compose([transforms.PILToTensor()])
     tensor = transform(image)
-    prediction=model(tensor)
+    with torch.no_grad():
+        prediction=model(tensor)
     predicted_classes = (prediction > 0).float()
     return predicted_classes
 
