@@ -58,7 +58,7 @@ class NeuralNetwork_Hyper(nn.Module):
 model_bare = NeuralNetwork_Hyper().to(device)
 print(model_bare)
 
-@st.cache(allow_output_mutation=True)
+@st.cache_resource
 def load_model(model_bare):
   model=model_bare.load_state_dict(torch.load('model1_vanilla7_weights.pth'))
   return model
